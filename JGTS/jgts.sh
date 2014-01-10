@@ -12,15 +12,15 @@ check_args() {
 test () {
 	case "$1" in
 		'section1')
-			_test $1 JGFAll
+#			_test $1 JGFAll
 			_test $1 JGFBarrierBench
 			_test $1 JGFForkJoinBench
 			_test $1 JGFSyncBench
 			;;
 		'section2')
-			_test $1 JGFAllSizeA
-			_test $1 JGFAllSizeB
-			_test $1 JGFAllSizeC
+#			_test $1 JGFAllSizeA
+#			_test $1 JGFAllSizeB
+#			_test $1 JGFAllSizeC
 
 			_test $1 JGFCryptBenchSizeA
 			_test $1 JGFCryptBenchSizeB
@@ -30,9 +30,9 @@ test () {
 			_test $1 JGFLUFactBenchSizeB
 			_test $1 JGFLUFactBenchSizeC
 
-			_test $1 JGFORBenchSizeA
-			_test $1 JGFORBenchSizeB
-			_test $1 JGFORBenchSizeC
+			_test $1 JGFSORBenchSizeA
+			_test $1 JGFSORBenchSizeB
+			_test $1 JGFSORBenchSizeC
 
 			_test $1 JGFSeriesBenchSizeA
 			_test $1 JGFSeriesBenchSizeB
@@ -43,8 +43,8 @@ test () {
 			_test $1 JGFSparseMatmultBenchSizeC
 			;;
 		'section3')
-			_test $1 JGFAllSizeA
-			_test $1 JGFAllSizeB
+#			_test $1 JGFAllSizeA
+#			_test $1 JGFAllSizeB
 
 			_test $1 JGFMolDynBenchSizeA
 			_test $1 JGFMolDynBenchSizeB
@@ -97,7 +97,7 @@ compile () {
 
 _test () {
 	rm -f "$1"_"$2"_dump.txt
-	java -cp ./:"$1"/ $2 >> "$1"_"$2"_dump.txt &
+	java -cp ./:"$1"/ $2 2 >> "$1"_"$2"_dump.txt &
 #	sleep 1
 	kill -3 $!
 #	sleep 1
