@@ -98,10 +98,10 @@ compile () {
 _test () {
 	rm -f "$1"_"$2"_dump.txt
 	java -cp ./:"$1"/ $2 >> "$1"_"$2"_dump.txt &
-	sleep 1
+#	sleep 1
 	kill -3 $!
-	sleep 1
-	kill -9 $!
+#	sleep 1
+#	kill -9 $!
 }
 
 case "$1" in
